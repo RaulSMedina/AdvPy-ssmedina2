@@ -1,26 +1,20 @@
-import sys
+# https://open.kattis.com/problems/kafkaesque\
 def main():
-    amount=1
+    total=1
     check=0
-    #print("Enter the amount of signatures needed")
     sig=int(input())
     for i in range(0,sig,1):
-        #print("Enter the numbers of the clerk's desk")
         clerk=int(input())
+        total, check=answer(clerk,check,total)
+        # if check>clerk:
+        #     amount=amount+1
+        # check=clerk
+    print(total)
+def answer(clerk,check,total):
         if check>clerk:
-            amount=amount+1
+            total=total+1
         check=clerk
-    print(amount)
-    #print("You will have to go though the line", amount, "times")
-# def ans(clerk):
-#     amount=1
-#     check=0
-#     if check>clerk:
-#         amount=amount+1
-#     check=clerk
-#     return amount
-# def test():
-#     assert ans([1,23,18,13,99])==5
+        return total, check
 
 if __name__ == "__main__":
     main()
